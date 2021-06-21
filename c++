@@ -29,7 +29,8 @@ const double PI = 3.141592653589793;
 
 void solve()
 {
-  	
+  	cout << "HELLO WORLD" << "\n";
+	return ;
 }
 
 int32_t main()
