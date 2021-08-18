@@ -1,0 +1,93 @@
+#pragma GCC optimize("Ofast")
+#pragma GCC target("avx,avx2,fma")
+#pragma GCC optimization ("unroll-loops")
+
+#include"bits/stdc++.h"
+
+using namespace std;
+
+#define Fast_D               cout<<fixed<<setprecision(13);
+#define FastIO               ios::sync_with_stdio(0); cin.tie(0); cout.tie(0);
+
+#define too_large 1
+
+#if(too_large ==1)
+#define int                  long long
+#define double               long double
+#endif
+
+#define all(v)               v.begin(),v.end()
+#define scanstr(s)           cin>>ws; getline(cin,s);
+#define ff                   first
+#define ss                   second
+
+#define Local  0
+
+#if (Local == 1)
+#define debug(x)             cout << __LINE__ << " " << #x <<"..." << x << endl;
+#endif
+
+const double PI = 3.141592653589793;
+
+char s[1002][1002] ;
+char par[1002][1002];
+bool vis[1002][1002];
+int n,m;
+
+void bfs(pair <int ,int> st)
+{
+	vis[st.ff][st.ss] = 1;
+	par[st.ff][st.ss] = -1;
+	queue <pair <int,int>> q;
+	q.push(st);
+	
+	while(!q.empty())
+	{
+		pair <int,int> cur = q.front();
+		q.pop();
+		
+		int i = cur.first;
+		int j = cur.second;
+		
+		if(i-1 >=1 && s[i-1][j] == '.')
+		{
+			par[i-1][j] = 'U';
+			q.push({i-1,j});
+		}
+		if(i+1 <= n && s[i+1][j] == '.')
+		{
+			par[i+1][j] = 'R';
+			q.push({i+1,j});
+		}
+		if(j-1 >=1 && )
+	}
+}
+
+void solve()
+{
+	cin >> n >> m;
+	pair <int ,int> st;
+	for(int i=1;i<=m;i++)
+	{
+		for(int j=1;j<=m;j++)
+		{
+			cin >> s[i][j];
+			if(s[i][j] == 'A')
+			{
+				st.ff = i;
+				st.ss = j;
+			}
+		}
+	}
+	bfs(st);
+}
+
+int32_t main()
+{
+    FastIO;
+    Fast_D;
+    int T;
+	cin >> T ;
+	while(T--)
+		solve();
+}
